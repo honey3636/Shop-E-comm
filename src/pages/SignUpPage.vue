@@ -88,7 +88,7 @@ export default {
 
                 if (result.status == 200) {
                     alert("User SignUp successfully");
-                    localStorage.setItem("user-info", JSON.stringify(result.data));
+                    localStorage.setItem("user-info", JSON.stringify(result.data.name));
                     this.$router.push("/");
                 }
             } catch (error) {

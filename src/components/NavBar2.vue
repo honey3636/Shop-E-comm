@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-transparent text-white fixed w-full  z-50 top-0" ref="navbar">
+        <div class="bg-transparent text-white fixed w-full border-b-[1px] border-gray-400 z-50 top-0" ref="navbar">
             <div class="2xl:container mx-auto">
                 <div class="grid grid-cols-3 md:grid-cols-7 p-3 ">
 
@@ -35,12 +35,21 @@
                     <!-- Cart and Account -->
                     <div class="md:col-span-1 md:col-start-7 flex items-center justify-end order-4">
                         <div class="cursor-pointer flex items-center gap-2">
-                            <div><font-awesome-icon :icon="['fas', 'cart-shopping']" /></div>
+                            <!-- cart -->
+
+                            <div>
+
+                                <router-link to="/cart">
+                                    <font-awesome-icon :icon="['fas', 'cart-shopping']" /></router-link>
+                            </div>
+
+                            <!-- Profile and setting part -->
                             <div @mouseover="showList" @mouseleave="hideList" class=" h-8 w-8 rounded-full bg-black">
-                                <div  class="absolute cursor-pointer top-8 right-0 ">
-                                    
+                                <div class="absolute cursor-pointer top-8 right-0 text-black ">
+
                                     <span ref="list" class="p-2 hidden  relative z-60 ">
-                                        <ul class="bg-gray-200 w-32 text-center font-bold py-3 rounded hover:scale-105 duration-300 ease-in-out">
+                                        <ul
+                                            class="bg-gray-200 w-32 text-center font-bold py-3 rounded hover:scale-105 duration-300 ease-in-out">
                                             <li class="hover:bg-gray-300">
                                                 <router-link to="/profile">Profile</router-link>
                                             </li>
@@ -77,10 +86,13 @@ export default {
             if (this.$route.fullPath != "/") {
                 if (this.$refs.navbar) {
 
+
+
                     this.$refs.navbar.classList.remove("bg-transparent", "text-white");
                     this.$refs.navbar.classList.add("bg-white", "text-black");
                     this.$refs.searchC.classList.add("md:block");
                     this.$refs.searchC.classList.remove("md:hidden");
+
 
                     console.log(this.$refs.navbar)
 
@@ -95,6 +107,7 @@ export default {
                         this.$refs.navbar.classList.add("bg-white", "text-black");
                         this.$refs.searchC.classList.remove("md:hidden");
                         this.$refs.searchC.classList.add("md:block");
+                        this.$refs.navbar.classList.add("border-b-[1px]");
 
                         console.log(this.$refs.navbar)
                     }
@@ -106,6 +119,8 @@ export default {
                         this.$refs.navbar.classList.remove("bg-white", "text-black");
                         this.$refs.searchC.classList.remove("md:block");
                         this.$refs.searchC.classList.add("md:hidden");
+                        this.$refs.navbar.classList.remove("border-b-[1px]");
+
                         console.log(this.$refs.navbar)
                     }
                 }
