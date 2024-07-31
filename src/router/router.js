@@ -7,6 +7,7 @@ import LoginPage from "@/pages/LoginPage.vue";
 import SignUpPage from "@/pages/SignUpPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import CartPage from "@/pages/CartPage.vue";
+
 const routes = [
     {
         name: 'HomePage',
@@ -46,7 +47,8 @@ const routes = [
     {
         name: 'CartPage',
         path: '/cart',
-        component: CartPage
+        component: CartPage 
+        
     }
 
 

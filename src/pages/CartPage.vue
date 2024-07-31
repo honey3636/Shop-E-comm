@@ -43,30 +43,30 @@
                                 <font-awesome-icon :icon="['fas', 'trash']" />
                             </div>
                         </div>
+
                     </div>
+                    <div class="bg-gray-200 mx-auto  sm:ml-6 rounded-lg p-3 mb-2 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <img class="h-16 w-16 border rounded-lg object-cover" src="@/assets/blog1.jpg" alt="/">
+                            <div class="ml-2">
+                                <p>Model no: 123lb</p>
+                                <p class="text-gray-400 text-sm ">PKR: 200.0 /piece</p>
+
+                            </div>
+                        </div>
+                        <!-- counter -->
+                        <div class="flex gap-2  ml-2 items-center border-2  border-white rounded-md">
+                            <button @click="decQuantity" class="w-6 bg-white hover:bg-gray-50 text-lg ">-</button>
+                            <p class="w-10 text-center">{{ quantity }}</p>
+                            <button @click="incQuantity" class="w-6 bg-white hover:bg-gray-50 text-lg ">+</button>
+                        </div>
+                        <p class="font-bold text-lg mx-1">PKR 8,740.0</p>
+                        
+                    </div>
+                    <hr>
                 </div>
 
-                <!-- another style cart item -->
-                <!-- <div class="flex items-center">
-                    <div>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="h-36 w-36">
-                        <img class="h-36 w-36 border rounded-lg mx-auto md:ml-3 object-cover" src="@/assets/blog1.jpg"
-                            alt="/">
-                    </div>
-                    <div class="flex">
-                        <div class="flex-grow ml-4">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, magni sed ducimus magnam
-                                inventore dignissimos reprehenderit maxime nesciunt
-                            </p>
-                            <p class="text-gray-400 text-sm">Min. order: 3 pieces</p>
-                        </div>
-                        <div class="w-20 flex justify-center">
-                            <font-awesome-icon :icon="['fas', 'trash']" />
-                        </div>
-                    </div>
-                </div> -->
+
             </div>
 
             <!-- total order -->
@@ -101,8 +101,23 @@ export default {
     components: {
         NavBar2,
     },
+    data() {
+        return {
+            quantity: 1,
+        }
+    },
     methods: {
+        incQuantity() {
+            if (this.quantity >= 1) {
+                return this.quantity++;
+            }
+        },
+        decQuantity() {
 
+            if (this.quantity > 1) {
+                return this.quantity--;
+            }
+        },
     },
 }
 </script>

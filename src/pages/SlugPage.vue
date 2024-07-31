@@ -51,7 +51,7 @@
                 </div>
                 <div class="grid grid-cols-2 mx-2 gap-2 my-2 text-xl ">
                     <button class="bg-blue-400 hover:bg-blue-300 py-2">Buy Now</button>
-                    <button class="bg-yellow-400 hover:bg-yellow-300">Add to Cart</button>
+                    <button @click="this.$router.push('/cart')" class="bg-yellow-400 hover:bg-yellow-300">Add to Cart</button>
                 </div>
             </div>
 
@@ -92,9 +92,7 @@
     </div>
 
 
-    <div class="xl:container m-2 sm:mx-auto ">
-
-    </div>
+    
 
 
 </template>
