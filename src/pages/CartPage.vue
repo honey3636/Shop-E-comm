@@ -45,6 +45,7 @@
                         </div>
 
                     </div>
+                    <!-- second item info card -->
                     <div class="bg-gray-200 mx-auto  sm:ml-6 rounded-lg p-3 mb-2 flex items-center justify-between">
                         <div class="flex items-center">
                             <img class="h-16 w-16 border rounded-lg object-cover" src="@/assets/blog1.jpg" alt="/">

@@ -24,10 +24,8 @@
                             <SearchCom class="outline-none text-black placeholder:text-black" />
                         </div>
                         <div class="flex items-center md:hidden ">
-                            <div class=" inline-block p-2 ">
-                                <div class="line h-0.5 w-6 my-1 bg-black" ref="l1"></div>
-                                <div class="line h-0.5 w-6 my-1 bg-black" ref="l2"></div>
-                                <div class="line h-0.5 w-6 my- bg-black" ref="l3"></div>
+                            <div  @mouseover="showSmNav = true"  class=" inline-block p-2" >
+                                <font-awesome-icon :icon="['fas', 'bars']" />
                             </div>
                             <div>search</div>
                         </div>
@@ -68,8 +66,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- mobile device show nav list -->
+            <div v-if="showSmNav"  @mouseleave="showSmNav=false"
+                class=" flex flex-col md:hidden w-[80vh] backdrop-blur-md  font-bold py-2 text-black h-[100vh]  ">
+                <p @click="showSmNav=false" class="text-sm p-3"> <font-awesome-icon :icon="['fas', 'arrow-left']" /> close menu</p>
+                <router-link class="cursor-pointer p-2 hover:bg-gray-300 " to="/">Home</router-link>
+                <router-link class="cursor-pointer p-2  hover:bg-gray-300" to="/contact">Contact Us</router-link>
+                <router-link class="cursor-pointer p-2 hover:bg-gray-300" to="/shop">Shops</router-link>
+            </div>
         </div>
     </div>
+
 </template>
 
 <!-- script section -->
@@ -80,6 +88,12 @@ export default {
     name: "NavBar2",
     components: {
         SearchCom,
+    },
+    data() {
+        return {
+
+            showSmNav: false,
+        }
     },
     methods: {
         navChange() {
@@ -138,6 +152,12 @@ export default {
         hideList() {
             this.$refs.list.classList.add("hidden");
         },
+        showNavlist() {
+            // this.$refs.smNav.classList.remove("flex");
+            
+           
+            
+        }
     },
     mounted() {
         window.addEventListener("scroll", this.navChange)
