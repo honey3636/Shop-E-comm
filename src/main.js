@@ -14,12 +14,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons'; // Brand icons
 library.add(fas, far, fab);
 
 import store from './store/store.js'
-
+import Swal from 'sweetalert2';
 const app=createApp(App);
 
 app.use(store);
 app.use(router);
-
+app.config.globalProperties.$swal = Swal;
 // Register the FontAwesomeIcon component globally
 app.component('font-awesome-icon', FontAwesomeIcon);
 

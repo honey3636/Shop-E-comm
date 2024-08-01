@@ -2,7 +2,33 @@
     <div class="border-black border border-b-2">
         <NavBar2 />
     </div>
+
     <div class="2xl:container mx-auto mt-[70px]">
+        <!-- step  -->
+        <!-- <div class="flex items-center justify-center relative ">
+            <div class="flex flex-col items-center">
+                <div class=" h-8 w-8 rounded-full border border-purple-500 flex items-center justify-center">1</div>
+                <h4>cart</h4>
+            </div>
+            <div class=" border-t border-gray-300 w-20 absolute top-4"></div>
+            <div class="flex flex-col items-center">
+                <div class=" h-8 w-8 rounded-full border border-purple-500 flex items-center justify-center">2</div>
+                <h4>payment</h4>
+            </div>
+            <div class=" border-t border-gray-300 w-20 "></div>
+            <div class="flex flex-col items-center">
+                <div class=" h-8 w-8 rounded-full border border-purple-500 flex items-center justify-center">3</div>
+                <h4>cart</h4>
+            </div>
+        </div> -->
+       <div class="flex justify-center">
+        <ul class="steps ">
+            <li class="step step-success">cart</li>
+            <li class="step step-success">Address</li>
+            <li class="step">payment</li>
+            <!-- <li class="step">Receive Product</li> -->
+        </ul>
+       </div>
         <div class=" font-bold text-3xl p-6">
             Shoping Cart
         </div>
@@ -17,7 +43,7 @@
                     <label for="selectAll">
                         <p class="mx-3 font-bold">Select All Items(1)</p>
                     </label>
-                    <div class="flex-grow border-t border-gray-300 m-"></div>
+                    <div class="flex-grow border-t border-gray-300 "></div>
                 </div>
 
                 <!-- Cart items -->
@@ -62,7 +88,7 @@
                             <button @click="incQuantity" class="w-6 bg-white hover:bg-gray-50 text-lg ">+</button>
                         </div>
                         <p class="font-bold text-lg mx-1">PKR 8,740.0</p>
-                        
+
                     </div>
                     <hr>
                 </div>

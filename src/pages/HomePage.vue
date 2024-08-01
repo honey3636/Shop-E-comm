@@ -18,8 +18,8 @@
             <!-- filter section -->
             <!-- <div class="bg-white absolute z-30  w-full top-[70px] p-2 cursor-pointor"> -->
 
-                <!-- first filter -->
-                <!-- <div @mouseover="showList" @mouseleave="hideList" class="relative z-30 top-0 cursor-pointer ml-4">
+            <!-- first filter -->
+            <!-- <div @mouseover="showList" @mouseleave="hideList" class="relative z-30 top-0 cursor-pointer ml-4">
                     <div>Select Order</div>
                     <span ref="list" class="p-2 hidden  absolute z-30 ">
                         <ul class="bg-gray-200 w-auto px-2 text-center font-bold py-3 rounded">
@@ -29,9 +29,9 @@
                         </ul>
                     </span> -->
 
-                    <!-- second filter -->
+            <!-- second filter -->
 
-                <!-- </div>
+            <!-- </div>
             </div> -->
 
             <img src="@/assets/heroImg.jpg" alt="/" class="h-full w-full object-cover absolute z-20 mix-blend-overlay">
@@ -229,6 +229,7 @@ export default {
         hideList() {
             this.$refs.list.classList.add("hidden");
         },
+       
 
 
     }

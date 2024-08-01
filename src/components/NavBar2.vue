@@ -24,7 +24,7 @@
                             <SearchCom class="outline-none text-black placeholder:text-black" />
                         </div>
                         <div class="flex items-center md:hidden ">
-                            <div  @mouseover="showSmNav = true"  class=" inline-block p-2" >
+                            <div @mouseover="showSmNav = true" class=" inline-block p-2">
                                 <font-awesome-icon :icon="['fas', 'bars']" />
                             </div>
                             <div>search</div>
@@ -68,9 +68,10 @@
             </div>
 
             <!-- mobile device show nav list -->
-            <div v-if="showSmNav"  @mouseleave="showSmNav=false"
-                class=" flex flex-col md:hidden w-[80vh] backdrop-blur-md  font-bold py-2 text-black h-[100vh]  ">
-                <p @click="showSmNav=false" class="text-sm p-3"> <font-awesome-icon :icon="['fas', 'arrow-left']" /> close menu</p>
+            <div v-if="showSmNav" @mouseleave="showSmNav = false"
+                class=" flex flex-col md:hidden w-[80vh] bg-white  font-bold py-2 text-black h-[100vh]  ">
+                <p @click="showSmNav = false" class="text-sm p-3"> <font-awesome-icon :icon="['fas', 'arrow-left']" />
+                    close menu</p>
                 <router-link class="cursor-pointer p-2 hover:bg-gray-300 " to="/">Home</router-link>
                 <router-link class="cursor-pointer p-2  hover:bg-gray-300" to="/contact">Contact Us</router-link>
                 <router-link class="cursor-pointer p-2 hover:bg-gray-300" to="/shop">Shops</router-link>
@@ -83,7 +84,7 @@
 <!-- script section -->
 <script>
 import SearchCom from './SearchCom.vue';
-
+import Swal from 'sweetalert2';
 export default {
     name: "NavBar2",
     components: {
@@ -116,47 +117,81 @@ export default {
             else {
 
                 if (this.$refs.navbar) {
-                    if (window.scrollY >= 300) {
+
+                    if (window.scrollY >= 50) {
                         this.$refs.navbar.classList.remove("bg-transparent", "text-white");
                         this.$refs.navbar.classList.add("bg-white", "text-black");
+                    }
+                    else {
+                        this.$refs.navbar.classList.add("bg-transparent", "text-white");
+                        this.$refs.navbar.classList.remove("bg-white", "text-black");
+                        
+                    }
+                    
+                    
+
+                    
+                }
+
+                if (this.$refs.navbar) {
+                    
+                    if (window.scrollY >= 300) {
+                        
                         this.$refs.searchC.classList.remove("md:hidden");
                         this.$refs.searchC.classList.add("md:block");
                         this.$refs.navbar.classList.add("border-b-[1px]");
 
-                        console.log(this.$refs.navbar)
-                    }
-                }
-
-                if (this.$refs.navbar) {
-                    if (window.scrollY < 300) {
-                        this.$refs.navbar.classList.add("bg-transparent", "text-white");
-                        this.$refs.navbar.classList.remove("bg-white", "text-black");
+                        // console.log(this.$refs.navbar)
+                    } 
+                    else {
+                       
                         this.$refs.searchC.classList.remove("md:block");
                         this.$refs.searchC.classList.add("md:hidden");
                         this.$refs.navbar.classList.remove("border-b-[1px]");
 
-                        console.log(this.$refs.navbar)
+                        // console.log(this.$refs.navbar)
                     }
                 }
             }
 
         },
-        logOut() {
-            // clearing the local storage
-            localStorage.clear();
-            this.$router.push('/login');
-        },
+        // logOut() {
+        //     // clearing the local storage
+        //     localStorage.clear();
+        //     this.$router.push('/login');
+        // },
         showList() {
             this.$refs.list.classList.remove("hidden");
         },
         hideList() {
             this.$refs.list.classList.add("hidden");
         },
-        showNavlist() {
-            // this.$refs.smNav.classList.remove("flex");
-            
-           
-            
+        logOut() {
+            Swal.fire({
+                title: "LogOut !",
+                text: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes !"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    // logout code
+                    localStorage.clear();
+                    this.$router.push('/login');
+
+                    Swal.fire({
+                        title: "LogOut Done",
+                        
+                        icon: "success"
+                    });
+                }
+            });
+
+
+
         }
     },
     mounted() {
