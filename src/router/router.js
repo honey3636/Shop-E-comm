@@ -45,9 +45,9 @@ const routes = [
         component: ProfilePage
     },
     {
-        name: 'CartPage',
+        name:"CartPage",
         path: '/cart',
-        component: CartPage 
+        component: CartPage,
         
     }
 

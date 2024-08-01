@@ -1,5 +1,5 @@
 <template>
-    <h2>address cart</h2>
+    <h2>Payment cart</h2>
     </template>
     
     <!-- script section -->
