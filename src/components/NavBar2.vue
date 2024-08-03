@@ -2,7 +2,7 @@
     <div>
         <div class="bg-transparent text-white fixed w-full border-b-[1px] border-gray-400 z-50 top-0" ref="navbar">
             <div class="2xl:container mx-auto">
-                <div class="grid grid-cols-3 md:grid-cols-7 p-3 ">
+                <div class="grid grid-cols-3 md:grid-cols-7 p-1 md:p-3 ">
 
                     <!-- menu and logo -->
                     <div class="md:col-span-3 lg:col-span-2 order-2 md:order-1">
@@ -24,9 +24,33 @@
                             <SearchCom class="outline-none text-black placeholder:text-black" />
                         </div>
                         <div class="flex items-center md:hidden ">
-                            <div @mouseover="showSmNav = true" class=" inline-block p-2">
+                            <!-- <div @mouseover="showSmNav = true" class=" inline-block p-2">
                                 <font-awesome-icon :icon="['fas', 'bars']" />
+                            </div> -->
+
+                            <!-- dasiy ui component using -->
+                            <div class="drawer-content inline-block p-2">
+                                <label for="my-drawer"><font-awesome-icon :icon="['fas', 'bars']" /></label>
+                                <div class="drawer">
+                                    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+
+                                    <div class="drawer-side">
+                                        <label for="my-drawer" aria-label="close sidebar"
+                                            class="drawer-overlay"></label>
+                                        <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                                            <!-- Sidebar content here -->
+                                            <li><router-link class="cursor-pointer p-2 "
+                                                    to="/">Home</router-link></li>
+                                            <li><router-link class="cursor-pointer p-2"
+                                                    to="/contact">Contact Us</router-link></li>
+                                            <li><router-link class="cursor-pointer p-2"
+                                                    to="/shop">Shops</router-link></li>
+                                            <li><router-link  class="cursor-pointer p-2" to="/profile">Profile</router-link></li>      
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
                             <div>search</div>
                         </div>
                     </div>
@@ -36,7 +60,6 @@
                             <!-- cart -->
 
                             <div>
-
                                 <router-link to="/cart">
                                     <font-awesome-icon :icon="['fas', 'cart-shopping']" /></router-link>
                             </div>
@@ -68,14 +91,16 @@
             </div>
 
             <!-- mobile device show nav list -->
-            <div v-if="showSmNav" @mouseleave="showSmNav = false"
+            <!-- <div v-if="showSmNav" @mouseleave="showSmNav = false"
                 class=" flex flex-col md:hidden w-[80vh] bg-white  font-bold py-2 text-black h-[100vh]  ">
                 <p @click="showSmNav = false" class="text-sm p-3"> <font-awesome-icon :icon="['fas', 'arrow-left']" />
                     close menu</p>
                 <router-link class="cursor-pointer p-2 hover:bg-gray-300 " to="/">Home</router-link>
                 <router-link class="cursor-pointer p-2  hover:bg-gray-300" to="/contact">Contact Us</router-link>
                 <router-link class="cursor-pointer p-2 hover:bg-gray-300" to="/shop">Shops</router-link>
-            </div>
+            </div> -->
+
+
         </div>
     </div>
 
@@ -93,7 +118,7 @@ export default {
     data() {
         return {
 
-            showSmNav: false,
+            // showSmNav: false,
         }
     },
     methods: {
@@ -125,26 +150,26 @@ export default {
                     else {
                         this.$refs.navbar.classList.add("bg-transparent", "text-white");
                         this.$refs.navbar.classList.remove("bg-white", "text-black");
-                        
-                    }
-                    
-                    
 
-                    
+                    }
+
+
+
+
                 }
 
                 if (this.$refs.navbar) {
-                    
+
                     if (window.scrollY >= 300) {
-                        
+
                         this.$refs.searchC.classList.remove("md:hidden");
                         this.$refs.searchC.classList.add("md:block");
                         this.$refs.navbar.classList.add("border-b-[1px]");
 
                         // console.log(this.$refs.navbar)
-                    } 
+                    }
                     else {
-                       
+
                         this.$refs.searchC.classList.remove("md:block");
                         this.$refs.searchC.classList.add("md:hidden");
                         this.$refs.navbar.classList.remove("border-b-[1px]");
@@ -184,7 +209,7 @@ export default {
 
                     Swal.fire({
                         title: "LogOut Done",
-                        
+
                         icon: "success"
                     });
                 }

@@ -4,17 +4,17 @@
     </div>
 
     <!-- slug detail section -->
-    <div class="xl:container m-2 sm:mx-auto ">
-        <div class="grid sm:grid-cols-2  md:mx-2 mt-[70px]">
+    <div class="xl:container m-2 sm:mx-auto bg-white">
+        <div class="grid sm:grid-cols-2  md:mx-2 mt-[70px] mb-6">
             <!-- Images Section -->
             <div class=" ">
-                <div class="border-b-2 pb-1">
+                <div class="border border-gray-300 rounded-lg pb-1">
                     <img ref="mainImg" class="sm:h-80 mx-auto" :src="mainImage" alt="card image" preview>
                 </div>
 
                 <!-- other images -->
-                <div class="relative flex items-center  ">
-                    <button @click="slideLeft" class="w-10 h-20 bg-gray-100 hover:bg-gray-200 rounded  ">
+                <div class="relative flex items-center border border-gray-300 rounded-lg mt-3 px-1">
+                    <button @click="slideLeft" class="w-12 h-12  bg-gray-50 hover:bg-gray-100 rounded-full  ">
                         <font-awesome-icon :icon="['fas', 'less-than']" />
                     </button>
                     <div id="slider"
@@ -24,7 +24,7 @@
                             @mouseover="mainImage = item.image_url" :src="item.image_url" alt="/">
 
                     </div>
-                    <button @click="slideRight" class="w-10 h-20 bg-gray-100 hover:bg-gray-200 rounded  ">
+                    <button @click="slideRight" class="w-12 h-12 bg-gray-50 hover:bg-gray-100 rounded-full  ">
                         <font-awesome-icon :icon="['fas', 'greater-than']" />
                     </button>
                 </div>
@@ -32,26 +32,43 @@
 
             </div>
             <!-- Description Section -->
-            <div class="des-section p-2 mx-2 flex flex-col justify-center gap-5">
-                <div class="title border-b-2 p-1  sm:text-2xl">
-                    {{ product.title }}
-                </div>
-                <div class="flex text-3xl py-3">
-                    <pre class="text-red-500 ">Rs. </pre>
-                    <p class="text-red-500">{{ product.sales_price1 }}</p>
-                </div>
-                <!-- Quantity Section-->
-                <div class=" flex items-center">
-                    <p class="text-gray-400">Quantity</p>
-                    <div class="flex gap-2 ml-2 items-center border-2 rounded-md">
-                        <button @click="decQuantity" class="w-6 bg-gray-200 hover:bg-gray-300 text-lg ">-</button>
-                        <p class="w-10 text-center">{{ quantity }}</p>
-                        <button @click="incQuantity" class="w-6 bg-gray-200 hover:bg-gray-300 text-lg ">+</button>
+            <div
+                class="des-section p-2 mx-2 flex flex-col justify-center gap-5 border border-gray-300 rounded-lg relative">
+                <div>
+                    <div class="title border-b border-gray-300 p-1  sm:text-2xl">
+                        {{ product.title }}
                     </div>
-                </div>
-                <div class="grid grid-cols-2 mx-2 gap-2 my-2 text-xl ">
-                    <button class="bg-blue-400 hover:bg-blue-300 py-2">Buy Now</button>
-                    <button @click="this.$router.push('/cart')" class="bg-yellow-400 hover:bg-yellow-300">Add to Cart</button>
+                    <div class="flex text-3xl py-3">
+                        <pre class="text-red-500 ">Rs. </pre>
+                        <p class="text-red-500">{{ product.sales_price1 }}</p>
+                    </div>
+                    <!-- Quantity Section-->
+                    <div class=" flex items-center my-4">
+                        <p class="text-gray-400">Quantity</p>
+                        <div class="flex gap-2 ml-2 items-center border-2 rounded-md">
+                            <button @click="decQuantity" class="w-6 bg-gray-200 hover:bg-gray-300 text-lg ">-</button>
+                            <p class="w-10 text-center">{{ quantity }}</p>
+                            <button @click="incQuantity" class="w-6 bg-gray-200 hover:bg-gray-300 text-lg ">+</button>
+                        </div>
+                    </div>
+
+                    <!-- color select -->
+                    <div class="my-6" >
+                        <p class="text-base font-bold mb-3">Color Select: black</p>
+                        <div class="flex gap-3">
+                            <div class="bg-red-500 h-14 w-14 rounded-lg"></div>
+                            <div class="bg-green-500 h-14 w-14 rounded-lg"></div>
+                            <div class="bg-pink-500 h-14 w-14 rounded-lg"></div>
+                            <div class="bg-black h-14 w-14 rounded-lg"></div>
+                        </div>
+                    </div>
+
+                    <!-- buttons -->
+                    <div class="grid grid-cols-2 mx-2 gap-2 my-2 text-xl ">
+                        <button class="bg-gray-100 hover:bg-gray-200 py-2 rounded-lg">Buy Now</button>
+                        <button @click="this.$router.push('/cart')"
+                            class="bg-yellow-300 hover:bg-yellow-400 rounded-lg">Add to Cart</button>
+                    </div>
                 </div>
             </div>
 
@@ -92,7 +109,7 @@
     </div>
 
 
-    
+
 
 
 </template>

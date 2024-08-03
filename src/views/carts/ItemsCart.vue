@@ -1,13 +1,13 @@
 <template>
     <div class="2xl:container mx-auto ">
 
-        <div class=" font-bold text-3xl px-6 pb-6">
+        <div class=" font-bold text-xl px-6 pb-6">
             Shoping Cart
         </div>
         <div class="grid md:grid-cols-3  px-6 ">
 
             <!-- cart items section -->
-            <div class="md:col-span-2 pr-3 hover:cursor-pointer">
+            <div class="md:col-span-2 pr-3 ">
 
                 <!-- select all section -->
                 <div class="h-6 flex items-center">
@@ -19,30 +19,32 @@
                 </div>
 
                 <!-- Cart items -->
-                <div class="my-3 ">
+                <div class="my-3 bg-white p-2 rounded-lg">
                     <p class=" font-bold text-lg px-6 mb-3">MM Interior.Ltd</p>
-                    <div class="grid sm:grid-cols-3 lg:grid-cols-4 items-center mb-1 gap-2">
-                        <div class="sm:col-span-1 flex ">
-                            <input type="checkbox" name="" id="check1">
-                            <img class="h-32 w-32 border rounded-lg mx-auto md:ml-3 object-cover"
-                                src="@/assets/blog1.jpg" alt="/">
+                    <label for="check1">
+                        <div class="grid sm:grid-cols-3 lg:grid-cols-4 items-center mb-1 gap-2 hover:cursor-pointer">
+                            <div class="sm:col-span-1 flex ">
+                                <input type="checkbox" name="" id="check1">
+                                <img class="h-32 w-32 border rounded-lg mx-auto md:ml-3 object-cover"
+                                    src="@/assets/blog1.jpg" alt="/">
+
+                            </div>
+                            <div class="sm:col-span-2 lg:col-span-3 flex items-center mx-3 sm:mx-0">
+                                <div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, magni sed ducimus
+                                        magnam
+                                        inventore dignissimos reprehenderit maxime nesciunt
+                                    </p>
+                                    
+                                    <p class="text-gray-400 text-sm">Min. order: 3 pieces</p>
+                                </div>
+                                <div @click="removeItem" class="w-20 flex justify-center hover:bg-gray-100 p-2 rounded-md">
+                                    <font-awesome-icon :icon="['fas', 'trash']" />
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="sm:col-span-2 lg:col-span-3 flex items-center mx-3 sm:mx-0">
-                            <div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, magni sed ducimus
-                                    magnam
-                                    inventore dignissimos reprehenderit maxime nesciunt
-                                </p>
-                                <p class="text-gray-400 text-sm">PKR: 200.0 per/piece</p>
-                                <p class="text-gray-400 text-sm">Min. order: 3 pieces</p>
-                            </div>
-                            <div class="w-20 flex justify-center">
-                                <font-awesome-icon :icon="['fas', 'trash']" />
-                            </div>
-                        </div>
-
-                    </div>
+                    </label>
                     <!-- second item info card -->
                     <div class="bg-gray-200 mx-auto  sm:ml-6 rounded-lg p-3 mb-2 flex items-center justify-between">
                         <div class="flex items-center">
@@ -68,8 +70,8 @@
 
             </div>
 
-            <!-- total order -->
-            <div class="shadow-xl rounded-xl md:ml-2 p-6 flex flex-col">
+            <!-- Order Summary -->
+            <div class="shadow-xl rounded-xl md:ml-2 p-6 flex flex-col bg-white">
                 <p class="font-bold text-lg py-4">Order Summary (0 items)</p>
                 <div class="flex justify-between text-lg mb-3">
                     <p>item subtotal</p>
@@ -93,6 +95,8 @@
 
 <!-- script section -->
 <script>
+import Swal from 'sweetalert2';
+
 
 export default {
     name: "ItemsCart",
@@ -113,6 +117,30 @@ export default {
                 return this.quantity--;
             }
         },
+        removeItem() {
+            Swal.fire({
+                title: "remove item!",
+                text: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes !"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    //condition code
+                   
+
+                    Swal.fire({
+                        title: "item removed",
+                        
+                        icon: "success"
+                    });
+                }
+        
+            });
+            },
     },
 }
 </script>

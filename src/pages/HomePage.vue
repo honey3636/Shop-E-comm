@@ -48,7 +48,7 @@
     <div class="bg-orange-100">
         <div class="2xl:container mx-auto  ">
 
-            <div class="grid  sm:grid-cols-3 md:grid-cols-4   bg-orange-100 p-8 gap-5">
+            <div class="grid  grid-cols-2 md:grid-cols-4   bg-orange-100 p-8 gap-5">
                 <div class="backdrop-blur-xl	">
                     <div class="rounded-xl p-7 h-60 sm:h-72 bg-orange-200 hover:bg-orange-300 cursor-pointer">
                         <div>
@@ -99,33 +99,37 @@
 
     <!-- card section -->
     <div class="2xl:container mx-auto my-4">
-        <div class="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 mx-3">
+        <div class="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-3  mx-3 ">
 
             <!-- cards -->
-            <div class="card border relative shadow-lg hover:scale-105 duration-300 ease-in-out cursor-pointer pt-1"
+            <div class="rounded-lg p-3  border relative shadow-lg hover:scale-105 duration-300 ease-in-out cursor-pointer  bg-white"
                 v-for="item in displayProduct" :key="item.id" @click="slugPage(item.slug)">
-                <div>
-                    <img v-if="localImageExists(item.id)" class="h-40 w-full object-cover"
+                <div class="bg-gray-100 rounded-lg  shadow-lg border-gray-400 p-1">
+                    <img v-if="localImageExists(item.id)" class="h-full w-full  rounded-lg object-cover"
                         :src="getLocalImagePath(item.id)" alt="cart img">
-                    <img v-else :src="item.image_url" class="h-40 w-full object-cover " alt="card image">
+                    <img v-else :src="item.image_url" class="h-full w-full rounded-lg object-cover " alt="card image">
                 </div>
-                <div class="p-3 ">
+                <div class=" ">
                     <p class="my-2 text-sm  truncate-text">{{ item.title }}</p>
                     <h3 class="text-xl ">MM Interior</h3>
                     <h4 class="mb-3">{{ item.sales_price1 }}</h4>
 
-                    <a class="text-blue-500 hover:underline cursor-pointer absolute  bottom-0 my-1" href="#">Shop
-                        Now+</a>
+                    <!-- <a class="text-blue-500 hover:underline cursor-pointer absolute  bottom-0 my-1" href="#">Shop
+                        Now+</a> -->
+                </div>
+                <div class="lg:flex gap-2">
+                    <button class="p-2    mb-2 xl:mb-0  w-full border  border-gray-500 rounded-full  hover:bg-yellow-300" >Chat now</button>
+                    <button @click="this.$router.push('/cart')" class="p-2   w-full border border-gray-500 rounded-full hover:bg-yellow-300"  >Add to Cart</button>
                 </div>
             </div>
 
         </div>
 
     </div>
-
+    <!-- Load more button -->
     <div class="2xl:container mx-auto my-4 flex justify-center">
         <button v-if="displayProduct.length < products.length" @click="loadMore"
-            class="bg-yellow-300 p-2 rounded-lg hover:bg-yellow-400">Load more</button>
+            class="bg-yellow-300 p-3 rounded-lg hover:bg-yellow-400">Load more</button>
     </div>
 
 
@@ -240,7 +244,7 @@ export default {
 <style>
 .truncate-text {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
