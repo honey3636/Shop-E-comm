@@ -7,6 +7,8 @@ import LoginPage from "@/pages/LoginPage.vue";
 import SignUpPage from "@/pages/SignUpPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import CartPage from "@/pages/CartPage.vue";
+import MyOrders from "@/views/Profile/MyOrders.vue";
+import MyProfile from "@/views/Profile/MyProfile.vue";
 
 const routes = [
     {
@@ -42,10 +44,26 @@ const routes = [
     {
         name: 'ProfilePage',
         path: '/profile',
-        component: ProfilePage
+        component: ProfilePage,
+        children: [
+            {
+                name: 'MyOrders',
+                path: '/orders',
+                component: MyOrders,
+                meta: { requiresAuth: true,transition: 'slide-right' }
+            },
+            {
+                name: 'MyProfile',
+                path: '/myprofile',
+                component: MyProfile,
+                meta: { requiresAuth: true,transition: 'slide-right' }
+
+            }
+        ]
+        
     },
     {
-        name:"CartPage",
+        name: "CartPage",
         path: '/cart',
         component: CartPage,
         
