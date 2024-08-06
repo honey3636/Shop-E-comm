@@ -7,8 +7,9 @@ import LoginPage from "@/pages/LoginPage.vue";
 import SignUpPage from "@/pages/SignUpPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import CartPage from "@/pages/CartPage.vue";
-import MyOrders from "@/views/Profile/MyOrders.vue";
+import AddressBook from "@/views/Profile/AddressBook.vue";
 import MyProfile from "@/views/Profile/MyProfile.vue";
+import ManageProfile from "@/views/Profile/ManageProfile.vue";
 
 const routes = [
     {
@@ -47,15 +48,22 @@ const routes = [
         component: ProfilePage,
         children: [
             {
-                name: 'MyOrders',
-                path: '/orders',
-                component: MyOrders,
+                name: 'AddressBook',
+                path: '/addressbook',
+                component: AddressBook,
                 meta: { requiresAuth: true,transition: 'slide-right' }
             },
             {
                 name: 'MyProfile',
                 path: '/myprofile',
                 component: MyProfile,
+                meta: { requiresAuth: true,transition: 'slide-right' }
+
+            },
+            {
+                name: 'ManageProfile',
+                path: '/manageprofile',
+                component: ManageProfile,
                 meta: { requiresAuth: true,transition: 'slide-right' }
 
             }

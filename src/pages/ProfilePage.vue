@@ -5,11 +5,11 @@
         <div class="grid grid-cols-12 gap-0 m-0 p-0 h-full ">
             <!-- g-col-xxl-2 g-col-xl-2 g-col-lg-2 g-col-md-3 g-col-sm-4 g-col-xs-2 g-col-2 p-0 bg-light bg-gradient border-end start-0 -->
             <div
-                class="lg:col-span-2 md:col-span-3 sm:col-span-4 col-span-2">
+                class="lg:col-span-2 md:col-span-3 sm:col-span-4 col-span-2 border-e border-gray-400  min-h-screen">
                 <SideBar/>
             </div>
             <!-- g-col-xxl-10 g-col-xl-10 g-col-lg-10 g-col-md-9 g-col-sm-8 g-col-xs-10 g-col-10 px-0 h-100 -->
-            <div class="lg:col-span-10 md:col-span-9 sm:col-span-8 col-span-10 px-0 h-full">
+            <div class="lg:col-span-10 md:col-span-9 sm:col-span-8 col-span-10 px-0   ">
                 
                 <!-- <div>
                     Profile
