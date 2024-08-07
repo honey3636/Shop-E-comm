@@ -5,12 +5,12 @@ import { createStore } from "vuex";
 export default createStore({
     //data
     state:{
-        selectedFilter:"hello"
+        selectedAccount:"switchToSeller"
     },
     //watcher
     mutations:{
-        setSelectedFilter(state,payload){
-            state.selectedFilter=payload;
+        setSelectedAccount(state,payload){
+            state.selectedAccount=payload;
         }
     },
     //Methods
@@ -19,7 +19,9 @@ export default createStore({
     },
     //computed(special methods)
     getters:{
-
+        getSelectedAccount(state){
+            return state.selectedAccount
+        },
     },
     
 });

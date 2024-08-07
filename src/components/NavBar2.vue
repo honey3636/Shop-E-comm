@@ -39,13 +39,13 @@
                                             class="drawer-overlay"></label>
                                         <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                                             <!-- Sidebar content here -->
-                                            <li><router-link class="cursor-pointer p-2 "
-                                                    to="/">Home</router-link></li>
+                                            <li><router-link class="cursor-pointer p-2 " to="/">Home</router-link></li>
+                                            <li><router-link class="cursor-pointer p-2" to="/contact">Contact
+                                                    Us</router-link></li>
+                                            <li><router-link class="cursor-pointer p-2" to="/shop">Shops</router-link>
+                                            </li>
                                             <li><router-link class="cursor-pointer p-2"
-                                                    to="/contact">Contact Us</router-link></li>
-                                            <li><router-link class="cursor-pointer p-2"
-                                                    to="/shop">Shops</router-link></li>
-                                            <li><router-link  class="cursor-pointer p-2" to="/profile">Profile</router-link></li>      
+                                                    to="/profile">Profile</router-link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -60,12 +60,13 @@
                             <!-- cart -->
 
                             <div>
+
                                 <router-link to="/cart">
                                     <font-awesome-icon :icon="['fas', 'cart-shopping']" /></router-link>
                             </div>
 
                             <!-- Profile and setting part -->
-                            <div @mouseover="showList" @mouseleave="hideList" class=" h-8 w-8 rounded-full bg-black">
+                            <!-- <div @mouseover="showList" @mouseleave="hideList" class=" h-8 w-8 rounded-full bg-black">
                                 <div class="absolute cursor-pointer top-8 right-0 text-black ">
 
                                     <span ref="list" class="p-2 hidden  relative z-60 ">
@@ -83,6 +84,33 @@
                                         </ul>
                                     </span>
                                 </div>
+                            </div> -->
+                            <div class="dropdown dropdown-hover text-black">
+                                <div tabindex="0" role="button" class="bg-gray-100 h-8 w-8 m-1 rounded-full"></div>
+                                <ul tabindex="0"
+                                    class="dropdown-content  top-10 right-0 menu bg-base-100 rounded-box z-50  p-2 shadow">
+                                    <li><a class="flex">
+                                            <div class="h-8 w-8 m-1 rounded-full bg-gray-100 "> </div>
+                                            <div>
+                                                <p>Hanzala Mughal</p>
+                                                <p class="text-gray-300 text-sm">hanzalamughal@gmail.com</p>
+                                            </div>
+                                        </a></li>
+                                    <li @click="switchAccount(selectedAccount)"
+                                        v-if="selectedAccount === 'switchToSeller'"><a
+                                            class="flex justify-center border border-gray-400 hover:bg-gray-600 hover:text-white mb-2">Switch
+                                            to Buying</a></li>
+                                    <li @click="switchAccount(selectedAccount)"
+                                        v-if="selectedAccount === 'switchToBuying'"><a
+                                            class="flex justify-center border border-gray-400 hover:bg-gray-600 hover:text-white mb-2">Switch
+                                            to Seller</a></li>
+                                    <hr>
+                                    <li ><router-link to="/profile">Profile</router-link></li>
+                                    <li><router-link to="/">Home</router-link></li>
+                                    <li><a @click="logOut">logout</a></li>
+
+
+                                </ul>
                             </div>
                         </div>
 
@@ -110,6 +138,8 @@
 <script>
 import SearchCom from './SearchCom.vue';
 import Swal from 'sweetalert2';
+import { mapMutations } from "vuex";
+
 export default {
     name: "NavBar2",
     components: {
@@ -117,11 +147,32 @@ export default {
     },
     data() {
         return {
-
-            // showSmNav: false,
+            selectedAccount: "switchToBuying"
         }
     },
+    // watch: {
+    //     getSelectedAccount(newVal) {
+    //         console.log("Account changed to:", newVal);
+    //         this.selectedAccount = newVal;
+            
+    //     }
+    // },
     methods: {
+        ...mapMutations({
+            setSelectedAccount: "setSelectedAccount"
+        }),
+
+        switchAccount(selectedAccount) {
+            if (selectedAccount === 'switchToBuying') {
+                this.selectedAccount = 'switchToSeller';  // Update local state if needed
+                this.setSelectedAccount(selectedAccount);
+            }
+            else  {
+                this.selectedAccount = 'switchToBuying';  // Update local state if needed
+                this.setSelectedAccount(selectedAccount);
+            }
+            console.log(this.selectedAccount)
+        },
         navChange() {
             if (this.$route.fullPath != "/") {
                 if (this.$refs.navbar) {
@@ -185,12 +236,12 @@ export default {
         //     localStorage.clear();
         //     this.$router.push('/login');
         // },
-        showList() {
-            this.$refs.list.classList.remove("hidden");
-        },
-        hideList() {
-            this.$refs.list.classList.add("hidden");
-        },
+        // showList() {
+        //     this.$refs.list.classList.remove("hidden");
+        // },
+        // hideList() {
+        //     this.$refs.list.classList.add("hidden");
+        // },
         logOut() {
             Swal.fire({
                 title: "LogOut !",
@@ -217,9 +268,11 @@ export default {
 
 
 
-        }
+        },
+        
     },
     mounted() {
+        // this.selectedAccount=this.setSelectedAccount;
         window.addEventListener("scroll", this.navChange)
         this.navChange();
 

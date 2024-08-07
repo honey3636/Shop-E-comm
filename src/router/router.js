@@ -10,6 +10,8 @@ import CartPage from "@/pages/CartPage.vue";
 import AddressBook from "@/views/Profile/AddressBook.vue";
 import MyProfile from "@/views/Profile/MyProfile.vue";
 import ManageProfile from "@/views/Profile/ManageProfile.vue";
+import DashBoard from "@/views/seller/DashBoard.vue";
+import AddProducts from "@/views/seller/AddProducts.vue";
 
 const routes = [
     {
@@ -66,7 +68,20 @@ const routes = [
                 component: ManageProfile,
                 meta: { requiresAuth: true,transition: 'slide-right' }
 
-            }
+            },
+            // Seller
+            {
+                name: 'DashBoard',
+                path: '/sellerDashBoard',
+                component: DashBoard,
+                meta: { requiresAuth: true,transition: 'slide-right' }
+            },
+            {
+                name: 'AddProducts',
+                path: '/products',
+                component: AddProducts,
+                meta: { requiresAuth: true,transition: 'slide-right' }
+            },
         ]
         
     },
