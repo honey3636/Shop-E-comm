@@ -2,10 +2,31 @@
     <div class="flex justify-between items-center">
         <h2 class="text-xl">Products</h2>
         <div class="flex justify-end">
-            <button class="bg-yellow-300 hover:bg-yellow-400 rounded-lg p-3 max-w-52 font-bold ">+Add New
+            <!-- Add product model -->
+            <button onclick="my_modal_3.showModal()" class="bg-yellow-300 hover:bg-yellow-400 rounded-lg p-3 max-w-52 font-bold ">+Add New
                 Product</button>
+            <!-- You can open the modal using ID.showModal() method -->
+            <dialog id="my_modal_3" class="modal">
+                <div class="modal-box w-auto">
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 class="text-lg font-bold mb-2">Add Product</h3>
+                    <div class="flex flex-col">
+                        <div @click="triggerFileInput" class="h-20 w-20 rounded-lg bg-gray-100 flex justify-center items-center hover:cursor-pointer">
+                            <img v-if="imageUrl" :src="imageUrl" alt="Selected Image" class="h-full w-full object-cover"/>
+                            <span v-if="!imageUrl">+</span>
+                        </div>
+                        <!-- <input type="file" @change="onFileChange"> -->
+                        <input type="file" ref="fileInput" @change="onFileChange" class="file-input file-input-bordered w-full max-w-xs hidden" />
+                        <input type="text">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </dialog>
         </div>
     </div>
+    <!--items tabel -->
     <div class="bg-white p-4 rounded-lg mt-4 overflow-hidden ">
 
         <table class="table-auto text-xs text-gray-500 text-start w-full ">
@@ -54,7 +75,22 @@
 
 export default {
     name: "AddProduct",
-
+    data() {
+        return{
+            imageUrl:null
+        }
+    },
+    methods: {
+        onFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                this.imageUrl = URL.createObjectURL(file);
+            }
+        },
+        triggerFileInput() {
+            this.$refs.fileInput.click();
+        }
+    },
 }
 </script>
 
