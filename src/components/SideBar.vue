@@ -97,11 +97,21 @@ export default {
         getSelectedAccount(newVal) {
             console.log("Account changed to:", newVal);
             this.selectedAccount = newVal;
-            
+            this.navigateToFirstRoute();
+        }
+    },
+    methods: {
+        navigateToFirstRoute() {
+            if (this.selectedAccount === 'switchToBuying' && this.sidebarMenuItems.length > 0) {
+                this.$router.push(this.sidebarMenuItems[0].path);
+            } else if (this.selectedAccount === 'switchToSeller' && this.itemsForSeller.length > 0) {
+                this.$router.push(this.itemsForSeller[0].path);
+            }
         }
     },
     mounted() {
         this.selectedAccount = this.getSelectedAccount;
+        this.navigateToFirstRoute();
         // console.log("Mounted with account:", this.selectedAccount);
     }
 }

@@ -2,20 +2,20 @@
 
     <div class="flex justify-center items-center min-h-screen ">
         <div class="grid grid-cols-1 w-80 p-5 rounded-xl shadow-lg border bg-white  ">
-            <img src="../assets/logo.png" class="w-16 h-16 object-cover rounded-lg mx-auto" alt="/">
-            <h2 class="text-center text-3xl font-bold mb-4">SignUp</h2>
+            <img src="../assets/logo.png" class="w-14 h-14 object-cover rounded-lg mx-auto" alt="/">
+            <h2 class="text-center text-2xl font-bold mb-4">SignUp</h2>
             <div class=" flex flex-col gap-2">
-                <input v-model="nameI" type="text" class="w-full border rounded-lg shadow-lg p-1"
+                <input v-model="nameI" type="text" class="w-full border rounded-lg shadow-lg p-2"
                     placeholder="Your Name">
-                <input v-model="emailI" type="email" class="w-full border shadow-lg  rounded-lg p-1 "
-                    placeholder="email address">
-                <input v-model="passwordI" type="password" ref="pass1" class="w-full border rounded-lg shadow-lg p-1 "
-                    placeholder="password">
+                <input v-model="emailI" type="email" class="w-full border shadow-lg  rounded-lg p-2 "
+                    placeholder="E-mail address">
+                <input v-model="passwordI" type="password" ref="pass1" class="w-full border rounded-lg shadow-lg p-2 "
+                    placeholder="Password">
                 <input v-model="passwordI2" @change="checkPass" type="password" ref="pass2"
-                    class="w-full border rounded-lg shadow-lg p-1 " placeholder="Conform password">
+                    class="w-full border rounded-lg shadow-lg p-2 " placeholder="Conform password">
                 <p v-if="missMatch" class="text-[11px] text-red-500 ">Password must be same</p>
-                <input v-model="phoneI" type="text" class="w-full border rounded-lg shadow-lg p-1 "
-                    placeholder="phone no">
+                <input v-model="phoneI" type="text" class="w-full border rounded-lg shadow-lg p-2 "
+                    placeholder="Phone number">
 
                 <span>
                     <label for="check">
@@ -25,7 +25,7 @@
                 </span>
             </div>
             <button :disabled="!check1" @click="signUpbtn"
-                class=" bg-yellow-300 w-28 p-3 rounded my-4 mx-auto hover:bg-yellow-400 font-bold">SignUp</button>
+                class=" bg-yellow-300 w-28 p-2 rounded my-4 mx-auto hover:bg-yellow-400 font-bold">SignUp</button>
 
             <div class=" border-t-[1px] border-gray-300 p-2 text-center">
                 <p>Already have an account? <span class="text-blue-500 cursor-pointer hover:underline"><router-link

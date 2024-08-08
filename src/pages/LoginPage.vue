@@ -5,9 +5,9 @@
             <img src="../assets/logo.png" class="w-16 h-16 object-cover rounded-lg mx-auto" alt="/">
             <h2 class="text-center text-3xl font-bold mb-4">Login</h2>
             <div class=" flex flex-col gap-4">
-                <input v-model="email" type="email" class="w-full border shadow-lg  rounded-lg  p-1"
-                    placeholder="email address">
-                <input v-model="password" type="password" class="w-full border rounded-lg shadow-lg p-1 "
+                <input v-model="email" type="email" class="w-full border shadow-lg  rounded-lg  p-2"
+                    placeholder="Phone no and Email address">
+                <input v-model="password" type="password" class="w-full border rounded-lg shadow-lg p-2 "
                     placeholder="password">
 
             </div>
