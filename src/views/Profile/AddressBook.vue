@@ -1,6 +1,6 @@
 <template>
     <h2 class="text-xl">Address Book</h2>
-    <div class="bg-white p-4 rounded-lg mt-4">
+    <div class="bg-white p-4 rounded-lg mt-4 overflow-x-auto">
         <table class="table-auto text-xs text-gray-500 text-start w-full ">
             <thead class="bg-gray-100 ">
                 <tr class=" border-b ">

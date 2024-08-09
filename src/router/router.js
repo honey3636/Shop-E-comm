@@ -11,7 +11,7 @@ import AddressBook from "@/views/Profile/AddressBook.vue";
 import MyProfile from "@/views/Profile/MyProfile.vue";
 import ManageProfile from "@/views/Profile/ManageProfile.vue";
 import DashBoard from "@/views/seller/DashBoard.vue";
-import AddProducts from "@/views/seller/AddProducts.vue";
+import SellerProducts from "@/views/seller/SellerProducts.vue";
 
 const routes = [
     {
@@ -77,9 +77,9 @@ const routes = [
                 meta: { requiresAuth: true,transition: 'slide-right' }
             },
             {
-                name: 'AddProducts',
+                name: 'SellerProducts',
                 path: '/products',
-                component: AddProducts,
+                component: SellerProducts,
                 meta: { requiresAuth: true,transition: 'slide-right' }
             },
         ]
